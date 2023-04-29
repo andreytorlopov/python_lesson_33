@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "todolist"
+version = "0.1.0"
+description = ""
+authors = ["Andrey Torlopov <torlopov.mail@ya.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.0.1"
+autopep8 = "^2.0.2"
+pyformat = "^0.7"
+python-dotenv = "^1.0.0"
+psycopg2 = "^2.9.6"
+gunicorn = "^20.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
