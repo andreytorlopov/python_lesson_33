@@ -11,6 +11,11 @@ services:
       - ./diploma_db_data:/var/lib/postgresql/data
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      timeout: 3s
+      retries: 5
+      interval: 3s
 
   api:
     build: .
@@ -20,8 +25,12 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      db:
+        condition: service_healthy
+    command: python manage.py runserver 0.0.0.0:8000  
+    volumes:
+      - ./todolist:/opt/todolist/
+      - ./core:/opt/core/
 
 volumes:
   diploma_db_data:
