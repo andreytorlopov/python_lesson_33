@@ -16,6 +16,7 @@ services:
       timeout: 3s
       retries: 5
       interval: 3s
+
   api:
     build: .
     env_file: .env
