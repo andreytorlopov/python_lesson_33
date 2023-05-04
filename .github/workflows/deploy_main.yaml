@@ -37,5 +37,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}}
           password: ${{ secrets.SSH_PASSWORD }}}
           source: "deploy/*"
-          target: "hw_33"
+          target: "python_lesson_33"
           strip_components: 1
