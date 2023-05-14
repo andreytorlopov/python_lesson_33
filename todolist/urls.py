@@ -7,4 +7,5 @@ urlpatterns = [
     path('core/', include('core.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema')),
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]
