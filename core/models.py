@@ -10,5 +10,8 @@ class UserRole(models.TextChoices):
 
 
 class User(AbstractUser):
+    class Meta:
+        verbose_name_plural = "Пользователи"
+
     role = models.CharField(
         max_length=8, choices=UserRole.choices, default=UserRole.MEMBER)
