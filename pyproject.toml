@@ -13,6 +13,9 @@ pyformat = "^0.7"
 python-dotenv = "^1.0.0"
 psycopg2 = "^2.9.6"
 gunicorn = "^20.1.0"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+drf-spectacular = "^0.26.2"
 
 
 [tool.poetry.group.dev.dependencies]
