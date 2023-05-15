@@ -38,14 +38,14 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}}
           password: ${{ secrets.SSH_PASSWORD }}}
           source: "deploy/*"
-          target: "python_lesson_35"
+          target: "deploy"
           strip_components: 1
-      - name: Cleanup after deploy
-        if: always()
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            docker system prune
+      # - name: Cleanup after deploy
+      #   if: always()
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SSH_HOST }}
+      #     username: ${{ secrets.SSH_USERNAME }}
+      #     password: ${{ secrets.SSH_PASSWORD }}
+      #     script: |
+      #       docker system prune
