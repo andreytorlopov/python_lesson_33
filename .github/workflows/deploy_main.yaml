@@ -38,7 +38,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           source: "deploy/*"
-          target: "/home/deploy"
+          target: "app"
+          strip_components: 1
       - name: Run compose
         uses: appleboy/ssh-action@master
         with:
@@ -46,7 +47,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd ./home/deploy
+            cd app
             export $(xargs <.env)
             envsubst < docker-compose.yaml
             docker compose down
